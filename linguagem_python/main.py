@@ -1,1 +1,3 @@
 from cliente import *
+
+menu()
