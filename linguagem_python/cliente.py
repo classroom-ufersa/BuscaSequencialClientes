@@ -22,12 +22,15 @@ def adiciona_cliente():
     Returns:
         None
     """
+    # abrir o arquivo 'clientes.txt' em modo de escrita
     arquivo = open('clientes.txt', 'a')
     
+    # criação de um dicionário vazio chamado clientes
     cliente = {}
     
     cabeçalho("-", "Adicionar cliente")
     
+    # solicitam os dados do usuário
     nome = input("Digite o nome do cliente: ")
     cidade = input("Digite a cidade do cliente: ")
     codigo = input("Digite o código de cliente: ")
@@ -36,6 +39,7 @@ def adiciona_cliente():
     cliente['cidade'] = cidade
     cliente['codigo'] = codigo
     
+    # Os dados do cliente são escritos no arquivo 'clientes.txt'
     arquivo.write(f"{cliente['nome']}\t{cliente['cidade']}\t{cliente['codigo']}\n")
     arquivo.close()
 
@@ -46,12 +50,15 @@ def lista_clientes():
     Returns:
         None
     """
+
+    # abre o arquivo 'clientes.txt' no modo leitura
     arquivo = open('clientes.txt', 'r')
     
     print("-" * 50)
     print(f"{'Nome':<20}{'Cidade':<20}{'Código':<20}")
     print("-" * 50)
     
+    # laço de repetição para listar os clientes
     for linha in arquivo:
         resultado = linha.split("\t")
         print(f"{resultado[0]:<20}{resultado[1]:<20}{resultado[2]:<20}")
@@ -66,17 +73,21 @@ def procura_codigo():
     Returns:
         None
     """
+
+    # abre o arquivo 'clientes.txt' em modo leitura 
     arquivo = open('clientes.txt', 'r')
     codigo = input("Digite o código do cliente: ")
     busca = False
     
     cabeçalho("-", "Resultado da busca por código")
     
+    # laço de repetição referente a busca sequencial pelo codigo (linha por linha)
     for linha in arquivo:
         
         resultado = linha.split("\t")
         resultado[2] = resultado[2].replace("\n", "")
         
+        # caso a busca seja bem-sucedida, imprime os dados dos clientes
         if codigo in resultado:
             busca = True
             print("-" * 50)
@@ -86,11 +97,13 @@ def procura_codigo():
             break;
     print("-" * 50)
     
+    # caso a busca não for bem sucedida, será exibido que o cliente não foi encontrado
     if busca == False:
         print("Cliente não encontrado!")
         
     a = input("Pressione enter para continuar...")
     
+    # fecha o arquivo 'clientes.txt' que foi aberto anteriomente para leitura
     arquivo.close()
     
 def procura_nome():
@@ -106,8 +119,11 @@ def procura_nome():
     
     cabeçalho("-", "Resultado da busca por nome")
     
+    # laço de repetição referente a busca sequencial pelo nome do cliente (linha por linha)
     for linha in arquivo:
         resultado = linha.split("\t")
+
+        # caso a busca seja bem-sucedida, imprime os dados dos clientes
         if nome in resultado:
             busca = True
             print("-" * 50)
@@ -116,10 +132,12 @@ def procura_nome():
             print(f"{resultado[0]:<20}{resultado[1]:<20}{resultado[2]:<20}")
     print("-" * 50)
     
+    # caso a busca não for bem sucedida, será exibido que o cliente não foi encontrado
     if busca == False:
         print("Cliente não encontrado!")
         
     a = input("Pressione enter para continuar...")
+    # fecha o arquivo 'clientes.txt' que foi aberto anteriomente para leitura
     arquivo.close()
  
 def menu():
