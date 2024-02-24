@@ -130,4 +130,4 @@ Para executar o código, digite o comando:
 ./main
 ```
 ## Referências utilizadas: 
-[OPERAÇÃO DE BUSCA SEQUENCIAL.](https://www.cin.ufpe.br/~garme/public/(ebook)Estruturas%20de%20Dados%20Usando%20C%20(Tenenbaum).pdf.)
+- [OPERAÇÃO DE BUSCA SEQUENCIAL.](https://www.cin.ufpe.br/~garme/public/(ebook)Estruturas%20de%20Dados%20Usando%20C%20(Tenenbaum).pdf.)
