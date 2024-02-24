@@ -45,6 +45,6 @@ O repositório está organizado da seguinte forma:
 ```
 
 ## Referências utlizadas:
-- OPERAÇÃO DE BUSCA SEQUENCIAL. In: Estruturas de Dados Usando C. [S. l.: s. n.], 1995. cap. 7, p. 491-500. Disponível em: https://www.cin.ufpe.br/~garme/public/(ebook)Estruturas%20de%20Dados%20Usando%20C%20(Tenenbaum).pdf. Acesso em: 24 de fevereiro de 2024.
+- [OPERAÇÃO DE BUSCA SEQUENCIAL](https://www.cin.ufpe.br/~garme/public/(ebook)Estruturas%20de%20Dados%20Usando%20C%20(Tenenbaum).pdf.)
 
-- 5.3. A Busca Sequencial — Resolução de Problemas Usando Python. Disponível em: <https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/BuscaSequencial.html>. Acesso em:  24 de fevereiro de 2024.
+- [Resolução de Problemas Usando Python](https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/BuscaSequencial.html)
