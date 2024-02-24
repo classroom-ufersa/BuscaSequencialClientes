@@ -15,7 +15,7 @@ A busca sequencial é um método simples de busca em que os elementos de uma col
 
 
 ## Como funciona a Busca Sequencial? 
-O algoritmo começa examinando o primeiro elemento da arrray e compara seu valor com o que está sendo procurado.Se houver uma correspondência, a busca é concluída, e a posição ou o elemento é retornado como resultado. Caso o valor procurado não seja encontrado no primeiro elemento, o algoritmo avança para o próximo elemento na sequência.   
+O algoritmo começa examinando o primeiro elemento da array e compara seu valor com o que está sendo procurado.Se houver uma correspondência, a busca é concluída e a posição ou o elemento é retornado como resultado. Caso o valor procurado não seja encontrado no primeiro elemento, o algoritmo avança para o próximo elemento na sequência.   
 
 Esse processo de comparação e avanço é repetido até que o valor desejado seja localizado ou até que todos os elementos da coleção tenham sido verificados. Se o valor não for encontrado, a busca sequencial geralmente retorna um indicativo, como -1, para indicar que o valor não está presente na coleção.
 
