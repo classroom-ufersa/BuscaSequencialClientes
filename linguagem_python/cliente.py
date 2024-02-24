@@ -22,6 +22,7 @@ def adiciona_cliente():
     Returns:
         None
     """
+
     # abrir o arquivo 'clientes.txt' em modo de escrita
     arquivo = open('clientes.txt', 'a')
     
@@ -31,10 +32,33 @@ def adiciona_cliente():
     cabeçalho("-", "Adicionar cliente")
     
     # solicitam os dados do usuário
-    nome = input("Digite o nome do cliente: ")
+    nome = (input("Digite o nome do cliente: ")).title()
     cidade = input("Digite a cidade do cliente: ")
-    codigo = input("Digite o código de cliente: ")
+
+    # verificando se o código é um inteiro
+    while True:
+        try:
+            codigo = int(input("Digite o código de cliente: "))
+            break
+        except ValueError:
+            print('Insira um código válido')
+
+    while True:
+        if verifica_codigo(codigo):
+            print("Código já existente!")
+            # verificando se o código é um inteiro
     
+            # verificando novamente se é um inteiro
+            while True:
+                try:
+                    codigo = int(input("Digite o código de cliente: "))
+                    break
+                except ValueError:
+                    print('Insira um código válido')
+        else:
+            break
+
+
     cliente['nome'] = nome
     cliente['cidade'] = cidade
     cliente['codigo'] = codigo
@@ -76,7 +100,15 @@ def procura_codigo():
 
     # abre o arquivo 'clientes.txt' em modo leitura 
     arquivo = open('clientes.txt', 'r')
-    codigo = input("Digite o código do cliente: ")
+    
+    # verificando se o código é um inteiro
+    while True:
+        try:
+            codigo = int(input("Digite o código de cliente: "))
+            break
+        except ValueError:
+            print('Insira um código válido')
+
     busca = False
     
     cabeçalho("-", "Resultado da busca por código")
@@ -88,7 +120,7 @@ def procura_codigo():
         resultado[2] = resultado[2].replace("\n", "")
         
         # caso a busca seja bem-sucedida, imprime os dados dos clientes
-        if codigo in resultado:
+        if str(codigo) in resultado:
             busca = True
             print("-" * 50)
             print(f"{'Nome':<20}{'Cidade':<20}{'Código':<20}")
@@ -102,7 +134,7 @@ def procura_codigo():
         print("Cliente não encontrado!")
         
     a = input("Pressione enter para continuar...")
-    
+
     # fecha o arquivo 'clientes.txt' que foi aberto anteriomente para leitura
     arquivo.close()
     
@@ -114,7 +146,7 @@ def procura_nome():
         None
     """
     arquivo = open('clientes.txt', 'r')
-    nome = input("Digite o nome do cliente: ")
+    nome = (input("Digite o nome do cliente: ")).title()
     busca = False
     
     cabeçalho("-", "Resultado da busca por nome")
@@ -139,7 +171,30 @@ def procura_nome():
     a = input("Pressione enter para continuar...")
     # fecha o arquivo 'clientes.txt' que foi aberto anteriomente para leitura
     arquivo.close()
- 
+
+def verifica_codigo(codigo):
+    """Procura um cliente pelo código no arquivo clientes.txt para verificar se já há algum com esse código.
+    Args:
+        codigo (int): codigo a ser verficado se já existe.
+    Returns:
+        bool: valor a ser retornado. True se já existir, False caso contrário.
+    """
+
+    arquivo = open('clientes.txt', 'r')
+
+    busca = False
+      
+    for linha in arquivo:
+        
+        resultado = linha.split("\t")
+        resultado[2] = resultado[2].replace("\n", "")
+        
+        if str(codigo) in resultado:
+            busca = True
+            break;
+    
+    return busca
+
 def menu():
     """Menu principal do programa
     
@@ -190,5 +245,3 @@ def menu():
         sleep(1)
         os.system('cls')
         return menu()
-    
-
