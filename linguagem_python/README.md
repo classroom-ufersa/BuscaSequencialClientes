@@ -1,6 +1,6 @@
 # Busca Sequencial de Clientes (Python)
 
-Esta pasta abriga o projeto de busca de clientes utilizando o algoritmo de busca sequencial em Python, dessa forma, é necessário ter uma versão do Python3 instalado no seu computador. Neste arquivo você verá:
+Esta pasta abriga o projeto de busca de clientes utilizando o algoritmo de busca sequencial em Python, dessa forma, é necessário ter uma versão do Python 3.x instalado no seu computador. Neste arquivo você verá:
 
 - Organização do repositório;
 - Busca Sequencial na linguagem Python;
@@ -24,7 +24,10 @@ A organização desta parte está disposta da seguinte forma:
 
 ## 2. Busca Sequencial na linguagem Python:
 
-A implementação da **Busca Sequencial** deste projeto é dada no arquivo `cliente.py` de forma que é aplicada em duas funções para diferentes termos. As funções de busca são:
+A implementação da **Busca Sequencial** deste projeto é dada no arquivo `cliente.py` de forma que é aplicada em duas funções para diferentes termos. Dessa forma, para cada linha do arquivo `clientes.txt` é criado um vetor das palavras dela. Assim, é feita uma comparação para verificar se o termo buscado se encontra na linha. Caso encontre-se, será impresso o resultado, se não, será impresso `Cliente não encontrado!`.
+
+
+As funções de busca são:
 
 - `procura_nome`: Procura um cliente pelo nome no arquivo clientes.txt;
 
