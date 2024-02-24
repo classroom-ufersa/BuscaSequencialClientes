@@ -24,7 +24,7 @@ A organização desta parte está disposta da seguinte forma:
 
 ## 2. Busca Sequencial na linguagem Python:
 
-A implementação da **Busca Sequencial** deste projeto é dada no arquivo `cliente.py` de forma que é aplicada em duas funções para diferentes termos. Dessa forma, para cada linha do arquivo `clientes.txt` é criado um vetor das palavras dela. Assim, é feita uma comparação para verificar se o termo buscado se encontra na linha. Caso encontre-se, será impresso o resultado, se não, será impresso `Cliente não encontrado!`.
+A implementação da **Busca Sequencial** deste projeto é dada no arquivo `cliente.py` de forma que é aplicada em duas funções para diferentes termos. Dessa forma, para cada linha do arquivo `clientes.txt` é criado um vetor das palavras dela. Assim, é feita uma comparação para verificar se o termo buscado se encontra na linha. Caso encontre, será impresso o resultado, se não, será impresso `Cliente não encontrado!`.
 
 
 As funções de busca são:
