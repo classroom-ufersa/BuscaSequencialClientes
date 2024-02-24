@@ -2,8 +2,8 @@
 
 Esse projeto foi desenvovido como parte de uma avaliação para a disciplina de Estrutura de Dados I, utilizando a busca sequencial. Neste repositório, você encontrará a implementação do algoritmo de busca sequencial em Python e em C.
 
-- [Repositório Python](https://github.com/classroom-ufersa/BuscaSequencialClientes/tree/main/linguagem_python)
-- [Repositório C](https://github.com/classroom-ufersa/BuscaSequencialClientes/tree/main/linguagem_c)
+- [Projeto em Python](https://github.com/classroom-ufersa/BuscaSequencialClientes/tree/main/linguagem_python)
+- [Projeto em C](https://github.com/classroom-ufersa/BuscaSequencialClientes/tree/main/linguagem_c)
 
 ## O que é Busca Sequencial?
 
