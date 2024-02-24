@@ -109,7 +109,7 @@ As funções de busca são:
 ###### Trecho em que ocorre a busca sequencial na função procura_codigo
 
 ## 4. Execução do projeto:
-#### 4.1 Compilação do código:
+### 4.1 Compilação do código:
 Para compilar o código, abra o terminal e navegue até a pasta `linguagem_c` e execute o seguinte comando:
 ```
 gcc -c cliente.c 
@@ -124,8 +124,10 @@ gcc -o main cliente.o main.o
 ```
 **Observação:** O  "main" é o nome do arquivo executável que será gerado após a compilação, você pode escolher o nome que desejar.
 
-#### 4.2 Execução do código:
+### 4.2 Execução do código:
 Para executar o código, digite o comando:
 ```
 ./main
 ```
+## Referências utilizadas: 
+[OPERAÇÃO DE BUSCA SEQUENCIAL.](https://www.cin.ufpe.br/~garme/public/(ebook)Estruturas%20de%20Dados%20Usando%20C%20(Tenenbaum).pdf.)
