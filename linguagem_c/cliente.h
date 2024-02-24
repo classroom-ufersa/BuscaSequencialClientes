@@ -15,6 +15,9 @@ int numero_inteiroc(char *str);
 
 int verifica_codigo(char *codigo_digitado);
 
+
 void cabecalho(char* linha, char* titulo);
+
+void lista_clientes();
 
 void menu();
