@@ -1,7 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+/*Arquivo interface do algoritmo de busca sequencial de cliente*/
 
-void procura_codigo();
+/*Definição de novo tipo: cliente*/
+typedef struct cliente Cliente;
 
-void procura_nome();
+/* Função responsável pela busca sequencial de clientes a partir do seu código*/
+void procura_codigo(none);
+
+
+/* Função responsável pela busca sequencial de clientes a partir do seu nome*/
+void procura_nome(none);
