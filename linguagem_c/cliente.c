@@ -11,7 +11,6 @@ typedef struct cliente {
 } Cliente;
 
 void adiciona_cliente() {
-    printf("Função adiciona_cliente() ainda não implementada em C.\n");
 }
 
 void procura_codigo() {
