@@ -80,4 +80,4 @@ A implementação da **Busca Sequencial** deste projeto é dada no arquivo `clie
 
 Para uma boa execução do projeto, garanta-se de, no **terminal** está no caminho da pasta `linguagem_python` e execute a seguinte linha de comando:
 
-```python main.c```
+```python main.py```
