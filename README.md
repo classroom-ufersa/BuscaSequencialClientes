@@ -2,9 +2,17 @@
 
 Esse projeto foi desenvovido como parte de uma avaliação para a disciplina de Estrutura de Dados I, utilizando a busca sequencial. Neste repositório, você encontrará a implementação do algoritmo de busca sequencial em Python e em C.
 
+- [Repositório Python](https://github.com/classroom-ufersa/BuscaSequencialClientes/tree/main/linguagem_python)
+- [Repositório C](https://github.com/classroom-ufersa/BuscaSequencialClientes/tree/main/linguagem_c)
+
 ## O que é Busca Sequencial?
 
 A busca sequencial é um método simples de busca em que os elementos de uma coleção (como um array ou lista) são examinados um a um até que o item desejado seja encontrado ou até que todos os elementos tenham sido verificados. É um processo linear que percorre os elementos em ordem, comparando cada um deles com o valor procurado.
+
+![image](https://github.com/classroom-ufersa/BuscaSequencialClientes/assets/126128839/31ab2fec-97ea-4d2d-8785-719695f6bcee)
+###### Figura 1: exemplo de busca sequencial em um vetor de inteiros. Fonte: [USP - Resolução de Problemas Usando Python](https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/BuscaSequencial.html).
+
+
 
 ## Como funciona a Busca Sequencial? 
 O algoritmo começa examinando o primeiro elemento da arrray e compara seu valor com o que está sendo procurado.Se houver uma correspondência, a busca é concluída, e a posição ou o elemento é retornado como resultado. Caso o valor procurado não seja encontrado no primeiro elemento, o algoritmo avança para o próximo elemento na sequência.   
