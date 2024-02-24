@@ -151,9 +151,25 @@ void procura_nome() {
     fclose(arquivo);
 }
 
+void lista_clientes(){
+    FILE *arquivo = fopen("clientes.txt", "r");
+    char linha[256];
 
+    if(arquivo == NULL) {
+        printf("Erro ao abrir o aquivo.\n");
+        return;
+    }
 
-void lista_clientes(){} // criei pra ver se dava certo o menu
+    cabecalho("=", "Lista de clientes");
+    printf("%s \t %s \t %s\n", "Nome", "Cidade", "Codigo");
+
+    while(fgets(linha, sizeof(linha), arquivo)) {
+        printf("%s", linha);
+    }
+
+    fclose(arquivo);
+
+} 
 
 void cabecalho(char* linha, char* titulo) {
     printf("%s\t%s\t%s\n", linha, titulo, linha);
