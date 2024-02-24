@@ -3,3 +3,5 @@
 #include <string.h>
 
 void procura_codigo();
+
+void procura_nome();
