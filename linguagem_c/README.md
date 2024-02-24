@@ -27,7 +27,7 @@ A organização desta parte está disposta da seguinte forma:
 ```
 ## 3. Busca Sequencial na linguagem C:
 
-A implementação da **Busca Sequencial** deste projeto é dada no arquivo `cliente.py` de forma que é aplicada em duas funções para diferentes termos. As funções de busca são:
+A implementação da **Busca Sequencial** deste projeto é dada no arquivo `cliente.c` de forma que é aplicada em duas funções para diferentes termos. As funções de busca são:
 
 - `procura_nome`: Procura um cliente pelo nome no arquivo clientes.txt;
 ```
