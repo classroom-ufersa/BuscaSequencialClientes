@@ -1,9 +1,0 @@
-O QUE MELHORAR
-
-- Fazer uma função que verifique os códigos dos clientes antes de cadastrar o novo cliente, assim não serão aceitos cadstros de clientes com o mesmo código;
-
-- Talvez seria interessante aceitar a pesquisa por nome com letra maiuscula ou minuscula, aí coloca um .sort e um pra deixar a primeira letra maiuscula e compara com o banco de dados;
-
--No cadastro dos códigos, só aceitar números inteiros;
-
--Seria interessante fazer um pra excluir os clientes? Seria trabalho extra;
