@@ -61,7 +61,7 @@ void adiciona_cliente();
  * @param none sem parâmetros.
  * @return sem retornos.
  */
-void procura_codigo();
+void procura_codigo(const char *codigo);
 
 
 /**
