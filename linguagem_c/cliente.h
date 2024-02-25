@@ -51,7 +51,19 @@ void adiciona_cliente();
 void procura_codigo();
 
 
-/* Função responsável pela busca sequencial de clientes a partir do seu nome*/
+/**
+ * @brief Realiza uma busca por nome em um arquivo de clientes.
+ *
+ * Esta função permite ao usuário buscar por um cliente através do seu nome em um arquivo de clientes.
+ *
+ * @note O arquivo de clientes deve estar formatado com cada linha representando um cliente e com os campos
+ * separados por tabulação.
+ *
+ * @note O nome fornecido deve conter apenas letras do alfabeto.
+ * 
+ * @param none sem parâmetros.
+ * @return sem retornos.
+ */
 void procura_nome();
 
 /**
