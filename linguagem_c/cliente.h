@@ -35,7 +35,19 @@ int verifica_codigo(char *codigo_digitado);
  */
 void adiciona_cliente();
 
-/* Função responsável pela busca sequencial de clientes a partir do seu código*/
+/**
+ * @brief Realiza uma busca por código em um arquivo de clientes.
+ *
+ * Esta função permite ao usuário buscar por um cliente através de seu código em um arquivo cliente.txt
+ *
+ * @note O arquivo de clientes deve estar formatado com cada linha representando um cliente e com os campos
+ * separados por tabulação.
+ *
+ * @note O código fornecido deve conter apenas números.
+ * 
+ * @param none sem parâmetros.
+ * @return sem retornos.
+ */
 void procura_codigo();
 
 

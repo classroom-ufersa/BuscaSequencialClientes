@@ -67,7 +67,6 @@ void adiciona_cliente() {
     scanf(" %99[^\n]", cliente.cidade);
     getchar();
 
-
     //verificar se o código é um inteiro ou não e se já existe no arquivo 
     do{
     printf("\nDigite o codigo do cliente: ");
