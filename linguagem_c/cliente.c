@@ -148,6 +148,15 @@ void procura_nome() {
     fgets(nome, 100, stdin);
     nome[strcspn(nome, "\n")] = 0; //função que garante que a string termine no local onde o usuário pressionou enter
 
+    //verifica se o nome contém apenas letras
+    for(int i = 0; nome[i] != '\0'; i++) {
+        if(!isalpha(nome[i])) {
+            printf("O nome deve conter apenas letras.\n");
+            fclose(arquivo);
+            return;
+        }
+    }
+
     printf("%-30s%-30s%-10s", "NOME", "CIDADE", "CODIGO");
     
     //lê o arquivo linha por linha 
