@@ -183,12 +183,14 @@ def verifica_codigo(codigo):
     arquivo = open('clientes.txt', 'r')
 
     busca = False
-      
+    
+    # laço de repetição referente a busca sequencial da existência do código no arquivo(linha por linha)
     for linha in arquivo:
         
         resultado = linha.split("\t")
         resultado[2] = resultado[2].replace("\n", "")
-        
+
+        # caso o código exista no arquivo
         if str(codigo) in resultado:
             busca = True
             break;
