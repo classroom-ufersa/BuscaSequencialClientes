@@ -159,14 +159,6 @@ void procura_nome() {
         scanf(" %99[^\n ]", nome_digitado); 
     }while(!contem_apenas_letras(nome_digitado));
     
-    //verifica se o código contém apenas números
-    // for (int index = 0; nome_digitado[index] != '\0'; index++) {
-    //     if (!isalpha(nome_digitado[index]) && nome_digitado[index] != ' ') {
-    //         printf("O nome deve conter apenas letras.\n");
-    //         return menu();
-    //     }
-    // }
-
     int encontrou = 0;
 
     while (fgets(linha, sizeof(linha), arquivo)) {
