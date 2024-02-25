@@ -1,10 +1,7 @@
-Hillary 	 Alexandria 	 1234
+Alexandre 	 Alexandria 	 1234 
 
-Alexandre 	 Alexandria 	 321
+Hillary 	 Alexandria 	 321 
 
-Leticia 	 Uirauna 	 123
+Leticia 	 Uirauna 	 456 
 
-Ana Beatriz 	 Catole 	 431
-
-Alexandre 	 Alexandria 	 789
-Gabriel 	 Almino 	 1910 
+Cecilia 	 Uirauna 	 654 
