@@ -79,6 +79,24 @@ As funções de busca são:
 
 ###### Trecho em que ocorre a busca sequencial na função procura_codigo
 
+- `verifica_codigo`: verifica se o código já existe no arquivo.
+
+```
+    # laço de repetição referente a busca sequencial na verificação do código a ser adicionado (linha por linha)
+    for linha in arquivo:
+        
+        resultado = linha.split("\t")
+        resultado[2] = resultado[2].replace("\n", "")
+        
+        if str(codigo) in resultado:
+            busca = True
+            break;
+    
+    return busca
+``` 
+
+###### Trecho em que ocorre a busca sequencial na função verifica_codigo
+
 ## 3. Execução do projeto:
 
 Para uma boa execução do projeto, garanta-se de, no **terminal** está no caminho da pasta `linguagem_python` e execute a seguinte linha de comando:
