@@ -15,6 +15,14 @@ void cabecalho(char* linha, char* titulo) {
     printf("%s\t%s\t%s\n", linha, titulo, linha);
 }
 
+void pressiona_enter(){
+    printf("\nPressione ENTER para continuar.");
+    // Limpa o buffer de entrada
+    while (getchar() != '\n');
+    // Espera o usuário pressionar Enter
+    getchar();
+}
+
 int numero_inteiroc(char *str) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (!isdigit(str[i])) {
@@ -73,7 +81,7 @@ void adiciona_cliente() {
 
     //verificar se o código é um inteiro ou não e se já existe no arquivo 
     do{
-    printf("\nDigite o codigo do cliente: ");
+    printf("\nDigite o codigo do cliente (apenas numeros inteiros): ");
     scanf("%99[^\n]", codigo_digitado);
     getchar();
     }while (!numero_inteiroc(codigo_digitado) || verifica_codigo(codigo_digitado));
@@ -87,20 +95,29 @@ void adiciona_cliente() {
     fclose(arquivo);
 }
 
-void procura_codigo(const char *codigo) {
+void procura_codigo() {
+    char codigo_digitado[100];
+    char linha[300];
     FILE *arquivo = fopen("clientes.txt", "r");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         return;
     }
 
-    char linha[256];
+    //verifica se o código digitado é inteiro
+    do{
+    printf("\nDigite o codigo do cliente (apenas numeros inteiros): ");
+    scanf("%99[^\n]", codigo_digitado);
+    getchar();
+    }while (!numero_inteiroc(codigo_digitado));
+  
+    //variável para indentificar se encontrou ou não o cliente
     int encontrou = 0;
-
+    //busca sequencial pelo código do cliente
     while (fgets(linha, sizeof(linha), arquivo)) {
         char nome[100], cidade[100], codigo_arquivo[100];
-        if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\n]", nome, cidade, codigo_arquivo) == 3) {
-            if (strcmp(codigo_arquivo, codigo) == 0) {
+        if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\t ]", nome, cidade, codigo_arquivo) == 3) {
+            if (strcmp(codigo_arquivo, codigo_digitado) == 0) {
                 printf("Cliente encontrado\n");
                 printf("Nome: %s\nCidade: %s\nCodigo: %s\n", nome, cidade, codigo_arquivo);
                 encontrou = 1;
@@ -113,23 +130,49 @@ void procura_codigo(const char *codigo) {
         printf("Cliente nao encontrado!\n");
     }
 
+    pressiona_enter();
+
     fclose(arquivo);
 }
 
-void procura_nome(const char *nome) {
+int contem_apenas_letras(char *str) {
+    for (int index = 0; str[index] != '\0'; index++) {
+        if (!isalpha(str[index]) && str[index] != ' ') {
+            printf("A string deve conter apenas letras.\n");
+            return 0;
+        }
+    }
+    return 1;
+}
+
+void procura_nome() {
+    char nome_digitado[100];
+    char linha[300];
     FILE *arquivo = fopen("clientes.txt", "r");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         return;
     }
 
-    char linha[256];
+    do{
+        printf("Digite o nome do cliente que deseja buscar: ");
+        scanf(" %99[^\n ]", nome_digitado); 
+    }while(!contem_apenas_letras(nome_digitado));
+    
+    //verifica se o código contém apenas números
+    // for (int index = 0; nome_digitado[index] != '\0'; index++) {
+    //     if (!isalpha(nome_digitado[index]) && nome_digitado[index] != ' ') {
+    //         printf("O nome deve conter apenas letras.\n");
+    //         return menu();
+    //     }
+    // }
+
     int encontrou = 0;
 
     while (fgets(linha, sizeof(linha), arquivo)) {
         char nome_arquivo[100], cidade[100], codigo[100];
-        if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\n]", nome_arquivo, cidade, codigo) == 3) {
-            if (strcmp(nome_arquivo, nome) == 0) {
+        if (sscanf(linha, "%99[^\t ]\t%99[^\t]\t%99[^\t ]", nome_arquivo, cidade, codigo) == 3) {
+            if (strcmp(nome_arquivo, nome_digitado) == 0) {
                 printf("Cliente encontrado\n");
                 printf("Nome: %s\nCidade: %s\nCodigo: %s\n", nome_arquivo, cidade, codigo);
                 encontrou = 1;
@@ -142,6 +185,7 @@ void procura_nome(const char *nome) {
         printf("Cliente nao encontrado!\n");
     }
 
+    pressiona_enter();
     fclose(arquivo);
 }
 
@@ -155,13 +199,15 @@ void lista_clientes(){
         return;
     }
 
-    cabecalho("=", "Lista de clientes");
-    printf("%s \t %s \t %s\n", "Nome", "Cidade", "Codigo");
+    cabecalho("====", "Lista de clientes");
+    printf("%s \t\t %s \t %s\n", "Nome", "Cidade", "Codigo");
 
     //lê o arquivo linha por linha 
     while(fgets(linha, sizeof(linha), arquivo)) {
         printf("%s", linha);
     }
+    
+    pressiona_enter();
 
     fclose(arquivo);
 
@@ -184,6 +230,7 @@ void menu() {
 
         printf("Escolha uma opcao: ");
         scanf("%1s", opcao);
+        getchar();
 
         if (strcmp(opcao, "1") == 0) {
             system("clear");
@@ -196,29 +243,11 @@ void menu() {
             system("clear");
         } else if (strcmp(opcao, "3") == 0) {
             system("clear");
-            printf("Digite o codigo do cliente: ");
-            scanf("%99s", codigo); 
-            //verifica se o código contém apenas números
-            for(int index = 0; codigo[index] != '\0'; index++) {
-                if(!isdigit(codigo[index])) {
-                    printf("O codigo deve conter apenas numeros.\n");
-                    return menu();
-                }
-            }
-            procura_codigo(codigo);
+            procura_codigo();
             system("clear");
         } else if (strcmp(opcao, "4") == 0) {
             system("clear");
-            printf("Digite o nome do cliente: ");
-            scanf(" %99[^\n]", nome); 
-            //verifica se o código contém apenas números
-            for (int index = 0; nome[index] != '\0'; index++) {
-                if (!isalpha(nome[index]) && nome[index] != ' ') {
-                    printf("O nome deve conter apenas letras.\n");
-                    return menu();
-                }
-            }
-            procura_codigo(nome);
+            procura_nome();
             system("clear");
         } else if (strcmp(opcao, "5") == 0) {
             printf("Saindo...\n");
