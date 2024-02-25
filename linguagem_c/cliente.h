@@ -14,6 +14,16 @@ typedef struct cliente Cliente;
  */
 void cabecalho(char* linha, char* titulo);
 
+/**
+ * @brief Espera o usuário pressionar enter para continuar.
+ * 
+ * Esta função serve para esperar o usuário apertar Enter para ir para a próxima função.
+ * 
+ * @param[in] none Sem parametros.
+ * @return sem retornos
+ */
+void pressiona_enter();
+
 
 /**
  * @brief Verifica se uma string contém apenas caracteres numéricos.
@@ -61,7 +71,18 @@ void adiciona_cliente();
  * @param none sem parâmetros.
  * @return sem retornos.
  */
-void procura_codigo(const char *codigo);
+void procura_codigo();
+
+/**
+ * @brief Verifica se uma string contém apenas letras ou espaços.
+ *
+ * Esta função verifica se uma string contém apenas letras (maiúsculas ou minúsculas)
+ * ou espaços. Ela percorre cada caractere da string e verifica se é uma letra ou um espaço.
+ *
+ * @param str A string a ser verificada.
+ * @return Retorna 1 se a string contém apenas letras ou espaços e 0 caso contrário.
+ */
+int contem_apenas_letras(char *str)
 
 
 /**
