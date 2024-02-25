@@ -5,6 +5,17 @@ typedef struct cliente Cliente;
 
 
 /**
+ * @brief Imprime um cabeçalho formatado.
+ * 
+ * Esta função imprime um cabeçalho formatado com o tipo de linha e um título.
+ * 
+ * @param[in] linha A string que representa o caractere utilizado para desenhar a linha do cabeçalho.
+ * @param[in] titulo O título do cabeçalho a ser impresso.
+ */
+void cabecalho(char* linha, char* titulo);
+
+
+/**
  * @brief Verifica se uma string contém apenas caracteres numéricos.
  * 
  * Esta função verifica se uma string contém apenas caracteres numéricos (dígitos de 0 a 9).
@@ -25,6 +36,7 @@ int numero_inteiroc(char *str);
  */
 int verifica_codigo(char *codigo_digitado);
 
+
 /**
  * @brief Adiciona um novo cliente à lista.
  * 
@@ -34,6 +46,7 @@ int verifica_codigo(char *codigo_digitado);
  * @return sem retornos.
  */
 void adiciona_cliente();
+
 
 /**
  * @brief Realiza uma busca por código em um arquivo de clientes.
@@ -66,6 +79,7 @@ void procura_codigo();
  */
 void procura_nome();
 
+
 /**
  * @brief Lista todos os clientes armazenados em um arquivo.
  *
@@ -79,16 +93,6 @@ void procura_nome();
  * @return sem retornos.
  */
 void lista_clientes();
-
-/**
- * @brief Imprime um cabeçalho formatado.
- * 
- * Esta função imprime um cabeçalho formatado com o tipo de linha e um título.
- * 
- * @param[in] linha A string que representa o caractere utilizado para desenhar a linha do cabeçalho.
- * @param[in] titulo O título do cabeçalho a ser impresso.
- */
-void cabecalho(char* linha, char* titulo);
 
 
 /**

@@ -11,6 +11,10 @@ typedef struct cliente {
     char codigo[100];
 } Cliente;
 
+void cabecalho(char* linha, char* titulo) {
+    printf("%s\t%s\t%s\n", linha, titulo, linha);
+}
+
 int numero_inteiroc(char *str) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (!isdigit(str[i])) {
@@ -109,7 +113,7 @@ void procura_codigo() {
         }
     }
 
-    printf("%-30s%-30s%-10s", "NOME", "CIDADE", "CODIGO");
+    printf("%s \t %s \t %s\n", "NOME", "CIDADE", "CODIGO");
 
     //lê o arquivo linha por linha 
     while(fgets(linha, sizeof(linha), arquivo)) {
@@ -156,7 +160,7 @@ void procura_nome() {
         }
     }
 
-    printf("%-30s%-30s%-10s", "NOME", "CIDADE", "CODIGO");
+    printf("%s \t %s \t %s\n", "NOME", "CIDADE", "CODIGO");
     
     //lê o arquivo linha por linha 
     while(fgets(linha, sizeof(linha), arquivo)) {
@@ -197,10 +201,6 @@ void lista_clientes(){
     fclose(arquivo);
 
 } 
-
-void cabecalho(char* linha, char* titulo) {
-    printf("%s\t%s\t%s\n", linha, titulo, linha);
-}
 
 void menu() {
     char opcao[2];
