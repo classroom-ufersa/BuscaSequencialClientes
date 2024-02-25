@@ -67,6 +67,20 @@ void procura_codigo();
 void procura_nome();
 
 /**
+ * @brief Lista todos os clientes armazenados em um arquivo.
+ *
+ * Esta função lê o arquivo de clientes e exibe na saída padrão todos os clientes armazenados.
+ *
+ *
+ * @note O arquivo de clientes deve estar formatado com cada linha representando um cliente e com os campos
+ * separados por tabulação.
+ * 
+ * @param none sem parâmetros.
+ * @return sem retornos.
+ */
+void lista_clientes();
+
+/**
  * @brief Imprime um cabeçalho formatado.
  * 
  * Esta função imprime um cabeçalho formatado com o tipo de linha e um título.
