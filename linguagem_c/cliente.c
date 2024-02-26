@@ -200,6 +200,9 @@ void lista_clientes(){
 void menu() {
     char opcao[2];
 
+    char sistema_operacional[10];
+    strcpy(sistema_operacional, "cls");
+
     while (1) {
         cabecalho("============", "Menu principal");
 
@@ -215,26 +218,26 @@ void menu() {
         getchar();
 
         if (strcmp(opcao, "1") == 0) {
-            system("clear"); 
+            system(sistema_operacional); 
             adiciona_cliente();
             sleep(1); 
-            system("clear"); 
+            system(sistema_operacional); 
         } else if (strcmp(opcao, "2") == 0) {
-            system("clear"); 
+            system(sistema_operacional);
             lista_clientes();
-            system("clear"); 
+            system(sistema_operacional);
         } else if (strcmp(opcao, "3") == 0) {
-            system("clear");
+            system(sistema_operacional);
             procura_codigo();
-            system("clear"); 
+            system(sistema_operacional);
         } else if (strcmp(opcao, "4") == 0) {
-            system("clear");
+            system(sistema_operacional);
             procura_nome();
-            system("clear");
+            system(sistema_operacional);
         } else if (strcmp(opcao, "5") == 0) {
             printf("Saindo...\n"); 
             sleep(1);
-            system("clear");
+            system(sistema_operacional);
             break;
         } else {
             printf("Opcao invalida!\n");
