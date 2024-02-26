@@ -113,6 +113,18 @@ void procura_nome() {
 ###### Trecho em que ocorre a busca sequencial na função procura_codigo
 
 ## 4. Execução do projeto:
+Para uma boa execução do projeto, garanta-se de, no **terminal** está no caminho da pasta `linguagem_c`. Além disso, há uma diferença de execução para os diferentes tipos de sistema operacional. 
+
+- Windows: Não é necessário mudar o código original, a constante de sistema operacional já está correta.
+
+```strcpy(sistema_operacional, "cls");```
+###### Linha 204 do arquivo cliente.c
+
+- Linux: É necessário a mudança da no `strcpy` presente na linha 204 do arquivo cliente.c. Garanta-se de salvar a mudança.
+
+```strcpy(sistema_operacional, "clear");```
+###### Linha 204 do arquivo cliente.py
+
 ### 4.1 Compilação do código:
 Para compilar o código, abra o terminal e navegue até a pasta `linguagem_c` e execute o seguinte comando:
 ```
