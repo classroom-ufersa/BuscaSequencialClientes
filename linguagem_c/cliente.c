@@ -76,17 +76,25 @@ void adiciona_cliente() {
     }
 
     //codigo digitado via teclado para comparação
+    char nome_digitado[100];
     char codigo_digitado[100]; 
 
+
     cabecalho("============", "Adiconar Cliente");
-    printf("\nDigite o nome do cliente: ");
-    scanf(" %99[^\n]", cliente.nome);
+    do{
+    printf("\nDigite o nome do cliente (apenas letras): ");
+    scanf("%99[^\n]", nome_digitado);
     getchar();
+    }while (!contem_apenas_letras(nome_digitado));
+    
+    //copia o que nome_digitado para a struct
+    strcpy(cliente.nome, nome_digitado);
+
     printf("\nDigite a cidade do cliente: ");
     scanf(" %99[^\n]", cliente.cidade);
     getchar();
 
-    //verificar se o código é um inteiro ou não e se já existe no arquivo 
+    //verifica se o código é um inteiro ou não e se já existe no arquivo 
     do{
     printf("\nDigite o codigo do cliente (apenas numeros inteiros): ");
     scanf("%99[^\n]", codigo_digitado);
@@ -193,7 +201,6 @@ void procura_nome() {
                 printf("Cliente encontrado\n");
                 printf("Nome: %s\nCidade: %s\nCodigo: %s\n", nome_arquivo, cidade, codigo);
                 encontrou = 1; //cliente encontrado
-                break; 
             }
         }
     }
