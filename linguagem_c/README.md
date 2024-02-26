@@ -33,75 +33,79 @@ As funções de busca são:
 
 - `procura_nome`: Procura um cliente pelo nome no arquivo clientes.txt;
 ```
-   void procura_nome() {
-    FILE *arquivo = fopen("clientes.txt", "r");
-    
-    char nome[100], linha[256];
-    int encontrou = 0;
+void procura_nome() {
+    char nome_digitado[100];
+    char linha[300];
 
-    if(arquivo == NULL) {
-        printf("Erro ao abrir o aquivo.\n");
+    FILE *arquivo = fopen("clientes.txt", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
         return;
     }
 
-    printf("Busca por Nome");
-    printf("Digite o nome do cliente: ");
-    fgets(nome, 100, stdin);
-    nome[strcspn(nome, "\n")] = 0; //função que garante que a string termine no local onde o usuário pressionou enter
+    do{
+        printf("Digite o nome do cliente que deseja buscar: ");
+        scanf(" %99[^\n]", nome_digitado);
+    } while (!contem_apenas_letras(nome_digitado));
+    int encontrou = 0;
 
-    printf("%s \t %s \t %s\n", "Nome", "Cidade", "Codigo");
-    
-    while(fgets(linha, sizeof(linha), arquivo)) {
-        char *token = strtok(linha, "\t"); //divide a string em partes com base no delimitador \t
-
-        if(strcmp(token, nome) == 0) {
-            printf("%s", linha);
-            encontrou = 1;
+    while (fgets(linha, sizeof(linha), arquivo)) {
+        char nome_arquivo[100], cidade[100], codigo[100];
+        if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\t ]", nome_arquivo, cidade, codigo) >= 2) {
+            if (strcmp(nome_arquivo, nome_digitado) == 0 || strstr(nome_arquivo, nome_digitado) != NULL) {
+                printf("Nome: %s\nCidade: %s\nCodigo: %s\n", nome_arquivo, cidade, codigo);
+                encontrou = 1;
+            }
         }
     }
 
-    if(!encontrou) {
+    if (!encontrou) {
         printf("Cliente nao encontrado!\n");
     }
 
+    pressiona_enter();
     fclose(arquivo);
 }
+
 ``` 
 ###### Trecho do código em que ocorre a busca sequencial na função procura_nome
 
 - `procura_codigo`: Procura um cliente pelo código no arquivo clientes.txt.
 ```
    void procura_codigo() {
-    FILE *arquivo = fopen("clientes.txt", "r");
-    
-    char codigo[100], linha[256];
-    int encontrou = 0;
+    char codigo_digitado[100];
+    char linha[300];
 
-    if(arquivo == NULL) {
-        printf("Erro ao abrir o aquivo.\n");
+    FILE *arquivo = fopen("clientes.txt", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
         return;
     }
 
-    printf("Busca por codigo");
-    printf("Digite o código do cliente: ");
-    fgets(codigo, 100, stdin);
-    codigo[strcspn(codigo, "\n")] = 0; //função que garante que a string termine no local onde o usuário pressionou enter
-    printf("%s \t %s \t %s\n", "Nome", "Cidade", "Codigo");
-
-    while(fgets(linha, sizeof(linha), arquivo)) {
-        char *token = strtok(linha, "\t"); //divide a string em partes com base no delimitador \t
-        
-        //realiza a comparação entre o código fornecido pelo usuário e os existentes
-        if(strcmp(token, codigo) == 0) {
-            printf("%s", linha);
-            encontrou = 1;
-            break;
+    do{
+    printf("\nDigite o codigo do cliente (apenas numeros inteiros): ");
+    scanf("%99[^\n]", codigo_digitado);
+    getchar();
+    }while (!numero_inteiroc(codigo_digitado));
+  
+    int encontrou = 0;
+    while (fgets(linha, sizeof(linha), arquivo)) {
+        char nome[100], cidade[100], codigo_arquivo[100];
+        if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\t ]", nome, cidade, codigo_arquivo) == 3) {
+            if (strcmp(codigo_arquivo, codigo_digitado) == 0) {
+                printf("Cliente encontrado\n");
+                printf("Nome: %s\nCidade: %s\nCodigo: %s\n", nome, cidade, codigo_arquivo);
+                encontrou = 1; //cliente encontrado
+                break;
+            }
         }
     }
 
-    if(!encontrou) {
+    if (!encontrou) {
         printf("Cliente nao encontrado!\n");
     }
+
+    pressiona_enter();
 
     fclose(arquivo);
 }

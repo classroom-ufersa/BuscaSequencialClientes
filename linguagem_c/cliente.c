@@ -116,7 +116,7 @@ void procura_codigo() {
             if (strcmp(codigo_arquivo, codigo_digitado) == 0) {
                 printf("Cliente encontrado\n");
                 printf("Nome: %s\nCidade: %s\nCodigo: %s\n", nome, cidade, codigo_arquivo);
-                encontrou = 1; //cliente encontrado
+                encontrou = 1;
                 break;
             }
         }
