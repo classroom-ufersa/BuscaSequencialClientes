@@ -12,6 +12,7 @@ typedef struct cliente {
 } Cliente;
 
 void cabecalho(char* linha, char* titulo) {
+    //cria um cabeçalho centralizado
     printf("%s\t%s\t%s\n", linha, titulo, linha);
 }
 
@@ -24,6 +25,7 @@ void pressiona_enter(){
 }
 
 int numero_inteiroc(char *str) {
+    //verifica se cada posição da string é um número
     for (int i = 0; str[i] != '\0'; i++) {
         if (!isdigit(str[i])) {
             return 0;
@@ -33,20 +35,23 @@ int numero_inteiroc(char *str) {
 }
 
 int verifica_codigo(char *codigo_digitado) {
+    //variáveis usadas na comparação 
     char linha[300];
     char codigo_arquivo[100];
     char cidade_arquivo[100];
     char nome_arquivo[100];
-    FILE *arquivo = fopen("clientes.txt", "r"); //abre em modo de leitura
-    
+
+    //abre em modo de leitura
+    FILE *arquivo = fopen("clientes.txt", "r"); 
     if (arquivo == NULL) {
         return 0; //verifica se o arquivo foi aberto ou não
     }
 
     //lê o arquivo linha por linha 
     while (fgets(linha, sizeof(linha), arquivo) != NULL) { 
+        //verifica se o sscanf conseguiu interpretar os 3 campos da linha
         if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\t ]", nome_arquivo, cidade_arquivo, codigo_arquivo) == 3) {
-            //verifica se o código lido é igual ao código fornecido
+            //verifica se o código lido é igual ao código fornecido via teclado
             if (strcmp(codigo_arquivo, codigo_digitado) == 0) {
                 printf("\nCodigo ja existe.");
                 fclose(arquivo);
@@ -60,21 +65,23 @@ int verifica_codigo(char *codigo_digitado) {
 }
 
 void adiciona_cliente() {
-    FILE *arquivo = fopen("clientes.txt", "a"); //abre o arquivo no modo de escrita
+    //inicializa a struct Cliente
     Cliente cliente;
-    
+    //abre o arquivo no modo de escrita
+    FILE *arquivo = fopen("clientes.txt", "a"); 
     //verifica se o arquivo foi aberto
     if(arquivo == NULL) { 
         printf("Erro ao abrir o aquivo.\n");
         return;
     }
 
-    char codigo_digitado[100]; //codigo digitado via teclado para comparação
+    //codigo digitado via teclado para comparação
+    char codigo_digitado[100]; 
 
     cabecalho("============", "Adiconar Cliente");
     printf("\nDigite o nome do cliente: ");
     scanf(" %99[^\n]", cliente.nome);
-    getchar(); //limpa o buffer de entrada
+    getchar();
     printf("\nDigite a cidade do cliente: ");
     scanf(" %99[^\n]", cliente.cidade);
     getchar();
@@ -86,7 +93,7 @@ void adiciona_cliente() {
     getchar();
     }while (!numero_inteiroc(codigo_digitado) || verifica_codigo(codigo_digitado));
 
-
+    //copia o que codigo_digitado para a struct
     strcpy(cliente.codigo, codigo_digitado);
 
     //escreve os dados do cliente no arquivo 'clientes.txt'
@@ -96,8 +103,11 @@ void adiciona_cliente() {
 }
 
 void procura_codigo() {
+    //variáveis usadas para comparação
     char codigo_digitado[100];
     char linha[300];
+
+    //abre o arquivo no modo leitura
     FILE *arquivo = fopen("clientes.txt", "r");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
@@ -115,13 +125,16 @@ void procura_codigo() {
     int encontrou = 0;
     //busca sequencial pelo código do cliente
     while (fgets(linha, sizeof(linha), arquivo)) {
+        //variaveis para a comparação
         char nome[100], cidade[100], codigo_arquivo[100];
+        //verifica se o sscanf conseguiu capturar os 3 campos;
         if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\t ]", nome, cidade, codigo_arquivo) == 3) {
+            //compara o que foi digitado com o que tem no arquivo
             if (strcmp(codigo_arquivo, codigo_digitado) == 0) {
                 printf("Cliente encontrado\n");
                 printf("Nome: %s\nCidade: %s\nCodigo: %s\n", nome, cidade, codigo_arquivo);
-                encontrou = 1;
-                break; 
+                encontrou = 1; //cliente encontrado
+                break;
             }
         }
     }
@@ -130,52 +143,56 @@ void procura_codigo() {
         printf("Cliente nao encontrado!\n");
     }
 
+    //pede para pressionar enter para sair da função
     pressiona_enter();
 
     fclose(arquivo);
 }
 
 int contem_apenas_letras(char *str) {
+    //percorre cada posição na string 
     for (int index = 0; str[index] != '\0'; index++) {
+        //compara se cada posição é uma letra e se não é um espaço
         if (!isalpha(str[index]) && str[index] != ' ') {
             printf("A string deve conter apenas letras.\n");
-            return 0;
+            return 0; //contem apenas letras
         }
     }
-    return 1;
+    return 1; //não contém apenas letras
 }
 
 void procura_nome() {
+    //variáveis de comparação
     char nome_digitado[100];
     char linha[300];
+
+    //arquivo aberto em modo leitura
     FILE *arquivo = fopen("clientes.txt", "r");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         return;
     }
 
+    //laço para verificar se o que foi digitado contém apenas letras
     do{
         printf("Digite o nome do cliente que deseja buscar: ");
         scanf(" %99[^\n ]", nome_digitado); 
     }while(!contem_apenas_letras(nome_digitado));
-    
-    //verifica se o código contém apenas números
-    // for (int index = 0; nome_digitado[index] != '\0'; index++) {
-    //     if (!isalpha(nome_digitado[index]) && nome_digitado[index] != ' ') {
-    //         printf("O nome deve conter apenas letras.\n");
-    //         return menu();
-    //     }
-    // }
 
+    //variável que define se o cliente foi ou não encontrado no arquivo
     int encontrou = 0;
 
+    //percorre cada linha do arquivo
     while (fgets(linha, sizeof(linha), arquivo)) {
+        //variáveis de comparação
         char nome_arquivo[100], cidade[100], codigo[100];
+        //verifica se o sscanf capturou todos os 3 campos da linha
         if (sscanf(linha, "%99[^\t ]\t%99[^\t]\t%99[^\t ]", nome_arquivo, cidade, codigo) == 3) {
+            //compara o que foi digitado com o que contém no arquivo
             if (strcmp(nome_arquivo, nome_digitado) == 0) {
                 printf("Cliente encontrado\n");
                 printf("Nome: %s\nCidade: %s\nCodigo: %s\n", nome_arquivo, cidade, codigo);
-                encontrou = 1;
+                encontrou = 1; //cliente encontrado
                 break; 
             }
         }
@@ -185,28 +202,34 @@ void procura_nome() {
         printf("Cliente nao encontrado!\n");
     }
 
+    //pede para pressionar enter para sair da função
     pressiona_enter();
     fclose(arquivo);
 }
 
 void lista_clientes(){
-    FILE *arquivo = fopen("clientes.txt", "r"); //abre o arquivo no modo de escrita
-    char linha[256];
+    //abre o arquivo no modo de leitura
+    FILE *arquivo = fopen("clientes.txt", "r"); 
+    char linha[300];
 
     //verifica se o arquivo foi aberto
     if(arquivo == NULL) {
         printf("Erro ao abrir o aquivo.\n");
         return;
     }
-
+    
+    //cabeçalho centralizado
     cabecalho("====", "Lista de clientes");
+    //parte de cima da planilha
     printf("%s \t\t %s \t %s\n", "Nome", "Cidade", "Codigo");
 
     //lê o arquivo linha por linha 
     while(fgets(linha, sizeof(linha), arquivo)) {
-        printf("%s", linha);
+        //imprime cada linha do arquivo
+        printf("%s", linha); 
     }
     
+    //pede para o usuário pressionar enter para sair da função
     pressiona_enter();
 
     fclose(arquivo);
@@ -214,10 +237,10 @@ void lista_clientes(){
 } 
 
 void menu() {
+    //variável usada para navegar no menu
     char opcao[2];
-    char codigo[100];
-    char nome[100];
 
+    //laço de repetição "infinito"
     while (1) {
         cabecalho("============", "Menu principal");
 
@@ -233,24 +256,24 @@ void menu() {
         getchar();
 
         if (strcmp(opcao, "1") == 0) {
-            system("clear");
+            system("clear"); //usado para limpar o terminal
             adiciona_cliente();
-            sleep(1);
-            system("clear");
+            sleep(1); //execução pausada por 1 segundo
+            system("clear"); //usado para limpar o terminal
         } else if (strcmp(opcao, "2") == 0) {
-            system("clear");
+            system("clear"); 
             lista_clientes();
-            system("clear");
+            system("clear"); 
         } else if (strcmp(opcao, "3") == 0) {
             system("clear");
             procura_codigo();
-            system("clear");
+            system("clear"); 
         } else if (strcmp(opcao, "4") == 0) {
             system("clear");
             procura_nome();
             system("clear");
         } else if (strcmp(opcao, "5") == 0) {
-            printf("Saindo...\n");
+            printf("Saindo...\n"); 
             sleep(1);
             system("clear");
             break;
