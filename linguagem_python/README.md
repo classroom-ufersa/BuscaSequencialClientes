@@ -99,6 +99,18 @@ As funções de busca são:
 
 ## 3. Execução do projeto:
 
-Para uma boa execução do projeto, garanta-se de, no **terminal** está no caminho da pasta `linguagem_python` e execute a seguinte linha de comando:
+Para uma boa execução do projeto, garanta-se de, no **terminal** está no caminho da pasta `linguagem_python`. Além disso, há uma diferençã de execução para os diferentes tipos de sistema operacional. 
+
+- Windows: Não é necessário mudar o código original, a constante de sistema operacional já está correta.
+
+```SISTEMA_OPERACIONAL = "cls"```
+###### Linha 3 do arquivo cliente.py
+
+- Linux: É necessário a mudança da constante `SISTEMA_OPERACIONAL` presente na linha 3 do arquivo cliente.py. Garanta-se de salvar a mudança.
+
+```SISTEMA_OPERACIONAL = "clear"```
+###### Linha 3 do arquivo cliente.py
+
+Por fim, execute a seguinte linha de comando **no caminho linguagem_python**:
 
 ```python main.py```
