@@ -82,7 +82,7 @@ void procura_codigo();
  * @param str A string a ser verificada.
  * @return Retorna 1 se a string contém apenas letras ou espaços e 0 caso contrário.
  */
-int contem_apenas_letras(char *str)
+int contem_apenas_letras(char *str);
 
 
 /**

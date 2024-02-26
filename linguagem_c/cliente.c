@@ -178,7 +178,7 @@ void procura_nome() {
         printf("Digite o nome do cliente que deseja buscar: ");
         scanf(" %99[^\n ]", nome_digitado); 
     }while(!contem_apenas_letras(nome_digitado));
-
+    
     //variável que define se o cliente foi ou não encontrado no arquivo
     int encontrou = 0;
 
