@@ -184,23 +184,19 @@ void procura_nome() {
     //laço para verificar se o que foi digitado contém apenas letras
     do{
         printf("Digite o nome do cliente que deseja buscar: ");
-        scanf(" %99[^\n ]", nome_digitado); 
-    }while(!contem_apenas_letras(nome_digitado));
-    
-    //variável que define se o cliente foi ou não encontrado no arquivo
+        scanf(" %99[^\n]", nome_digitado);
+    } while (!contem_apenas_letras(nome_digitado));
     int encontrou = 0;
 
     //percorre cada linha do arquivo
     while (fgets(linha, sizeof(linha), arquivo)) {
         //variáveis de comparação
         char nome_arquivo[100], cidade[100], codigo[100];
-        //verifica se o sscanf capturou todos os 3 campos da linha
-        if (sscanf(linha, "%99[^\t ]\t%99[^\t]\t%99[^\t ]", nome_arquivo, cidade, codigo) == 3) {
-            //compara o que foi digitado com o que contém no arquivo
-            if (strcmp(nome_arquivo, nome_digitado) == 0) {
-                printf("Cliente encontrado\n");
+        if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\t ]", nome_arquivo, cidade, codigo) >= 2) {
+            //verficações para ver se é identico, parecido com o que tem no arquivo
+            if (strcmp(nome_arquivo, nome_digitado) == 0 || strstr(nome_arquivo, nome_digitado) != NULL) {
                 printf("Nome: %s\nCidade: %s\nCodigo: %s\n", nome_arquivo, cidade, codigo);
-                encontrou = 1; //cliente encontrado
+                encontrou = 1;
             }
         }
     }
