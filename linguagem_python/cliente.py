@@ -1,5 +1,6 @@
 import os
 from time import sleep
+SISTEMA_OPERACIONAL = "cls" #definido para windows
 
 def cabeçalho(divisoria, titulo):
     """Imprime um cabeçalho com um título centralizado
@@ -197,32 +198,32 @@ def menu():
     opcao = input("Escolha uma opção: ")
     
     if opcao == "1":
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
         adiciona_cliente()
         sleep(1)
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
         return menu()
     elif opcao == "2":
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
         lista_clientes()
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
         return menu()
     elif opcao == "3":
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
         procura_codigo()
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
         return menu()
     elif opcao == "4":
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
         procura_nome()
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
         return menu()
     elif opcao == "5":
         print("Saindo...")
         sleep(1)
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
     else:
         print("Opção inválida!")
         sleep(1)
-        os.system('cls')
+        os.system(SISTEMA_OPERACIONAL)
         return menu()
