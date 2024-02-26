@@ -37,7 +37,7 @@ As funções de busca são:
         resultado = linha.split("\t")
 
         # caso a busca seja bem-sucedida, imprime os dados dos clientes
-        if nome in resultado:
+        if nome in resultado[2]:
             busca = True
             print("-" * 50)
             print(f"{'Nome':<20}{'Cidade':<20}{'Código':<20}")
