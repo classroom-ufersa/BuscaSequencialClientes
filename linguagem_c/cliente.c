@@ -96,7 +96,7 @@ void adiciona_cliente() {
     strcpy(cliente.nome, nome_digitado);
 
     do{
-        printf("\nDigite o nome do cliente (apenas letras): ");
+        printf("\nDigite a cidade do cliente (apenas letras): ");
         scanf("%99[^\n]", cidade_digitada);
         getchar();
     }while (!contem_apenas_letras(cidade_digitada));
@@ -222,7 +222,7 @@ void lista_clientes(){
 } 
 
 void menu() {
-    char opcao[2];
+    char opcao[100];
 
     char sistema_operacional[10];
     strcpy(sistema_operacional, "cls");
@@ -237,9 +237,11 @@ void menu() {
         printf("5|\t Sair\n");
         printf("---------------------------------------------\n");
 
-        printf("Escolha uma opcao: ");
-        scanf("%1s", opcao);
+        do{
+        printf("Escolha uma opcao dentre as do menu: ");
+        scanf(" %[^\n]", opcao);
         getchar();
+        }while(!numero_inteiroc(opcao));
 
         if (strcmp(opcao, "1") == 0) {
             system(sistema_operacional); 
