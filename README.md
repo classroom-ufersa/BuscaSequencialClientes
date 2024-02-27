@@ -27,6 +27,8 @@ O repositório está organizado da seguinte forma:
 │
 └───assets
         │
+        ├── complexidade_espacial_temporal_codigo.png
+        ├── complexidade_espacial_temporal_nome.png
         ├── melhor_caso_tempo.png
         ├── melhor_caso_tempo_nome.png
         ├── pior_caso_tempo.png
