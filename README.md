@@ -36,7 +36,6 @@ O repositório está organizado da seguinte forma:
         │
         ├──cliente.py
         ├──clientes.txt
-        ├──comentarios.txt
         ├──main.py
         └── README.md
 │
