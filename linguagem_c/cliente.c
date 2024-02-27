@@ -182,7 +182,7 @@ void procura_nome() {
     int encontrou = 0;
 
     formata_string(nome_digitado);
-    
+
     while (fgets(linha, sizeof(linha), arquivo)) {
         char nome_arquivo[100], cidade[100], codigo[100];
         if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\t ]", nome_arquivo, cidade, codigo) >= 2) {
@@ -270,7 +270,7 @@ void menu() {
         } else {
             printf("Opcao invalida!\n");
             sleep(1);
-            system("clear");
+            system(sistema_operacional);
         }
     }
 }
