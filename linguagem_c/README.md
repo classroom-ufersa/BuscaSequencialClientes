@@ -149,20 +149,58 @@ Para executar o código, digite o comando:
 ```
 
 ## 5. Análise de complexidade 
-### 4.2 Melhor caso
-![alt text](image.png)   
+### 5.1 Melhor caso 
+O melhor caso ocorre quando o elemento buscado é o primeiro elemento do vetor. Neste caso, a complexidade é constante, ou seja, O(1).
+
+- Procura_codigo:
+![Alt text](../assets/melhor_caso_tempo.png)
 *cálculos:*    
-T(N) = C1 + C2 + C3 + C4 + C5 + C6 + C7 * 1+ C8 * 1 + C9 * 1 + C10 * 1 + C11  * 1 + C12 + C13 * 1 + C14 * 1 + C15 * 1 + C16 +  C17 + C18  + C19    
-T(N) = (C1 + C2 + C3 + C4 + C5 + C6 + C16 + C17 + C18 + C19) + (C7 + C8 + C9+ C10 + C11 + C13 + C14 + C15) * 1   
-T(N) = a + b * 1   
+
+T(N)= C1+ C2 + C3 + C4 + C5 + C6 + C7 * 1 + C8 * 1 + C9 * 1 + C10 * 1 + C11 + C12 * 1 + C13 * 1 + C14 * 1 + C15 * 1 + C16 * 1 + C17 * 1 + C18 * 1 + C19 * 1 + C20 + C21 + C22 + C23
+
+T(N) =(C1 + C2 + C3 + C4 + C5 + C6 + C20 + C21 + C22 + C23) + (C7 + C8 + C9 + C10 + C11 + C12 + C13 + C14 + C15 + C16 + C17 + C18 + C19) * 1
+
+T(N) = a + b * 1
+
 *Colocando na notação Big(O):* b * 1 = 1 = bigO(1)
 
-### 4.3 Pior caso
-![alt text](image-1.png)   
+- Procura_nome:
+
+![Alt text](../assets/melhor_caso_tempo_nome.png)
+
+*cálculos:*
+
+T(N) = C1 + C2 + C3 + C4 + C5 + C6 + C7 * 1 + C8 * 1 + C9 * 1 + C10 * 1 + C11 + C12 * 1 + C13 * 1 + C14 * 1 + C15 * 1 + C16 * 1 + C17 * 1 + C18 * 1 + C19 * 1 + C20 + C21 + C22 + C23
+
+T(N) = (C1 + C2 + C3 + C4 + C5 + C6 + C20 + C21 + C22 + C23) + (C7 + C8 + C9 + C10 + C11 + C12 + C13 + C14 + C15 + C16 + C17 + C18 + C19) * 1
+
+T(N) = a + b * 1
+
+*Colocando na notação Big(O):* b * 1 = 1 = bigO(1)
+
+### 5.2 Pior caso
+O pior caso ocorre quando o elemento buscado é o último elemento do vetor. Neste caso, a complexidade é linear, ou seja, O(n).
+
+- Procura_codigo:
+
+ ![Alt text](../assets/pior_caso_tempo.png)
 *cálculos:*   
 T(N) = C1 + C2 + C3 + C4 + C5 + C6 + C7 * N+ C8 * N + C9 * N + C10 * N + C11  * N + C12 + C13 * N + C14 * N + C15 * N + C16 + C17 + C18 + C19   
 T(N) = (C1 + C2 + C3 + C4 + C5 + C6 + C7 + C16 + C17 + C18 + C19) + (C7 + C8 + C9+ C10 + C11 + C13 + C14 + C15) * N   
 T(N) = a + b * N   
+*Colocando na notação Big(O):* b * N = N = bigO(n)
+
+- Procura_nome:
+
+![Alt text](../assets/pior_caso_tempo_nome.png)
+
+*cálculos:*
+T(N) = C1 + C2 + C3 + C4 + C5 + C6 + C7 * N+ C8 * N + C9 * N + C10 * N + C11  * N + C12 + C13 * N + C14 * N + C15 * N + C16 + C17 + C18 + C19 + C20 + C21 + C22 + C23
+
+T(N) = (C1 + C2 + C3 + C4 + C5 + C6 + C7 + C16 + C17 + C18 + C19 + C20 + C21 + C22 + C23) + (C7 + C8 + C9+ C10 + C11 + C13 + C14 + C15) * N
+
+T(N) = a + b * N
+
 *Colocando na notação Big(O):* b * N = N = bigO(n)
 
 ## Referências utilizadas: 
