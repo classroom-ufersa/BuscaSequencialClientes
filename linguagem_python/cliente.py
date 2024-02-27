@@ -20,10 +20,10 @@ def valida_codigo(verificar_existencia):
     de acordo com o parâmetro passado.
 
     Args:
-        verificar_existencia (_type_): _description_
+        verificar_existencia (bool): Parâmetro que indica se a função deve verificar se o código já existe.
 
     Returns:
-        _type_: _description_
+        int: Código do cliente válido
     """
     
     while True:
