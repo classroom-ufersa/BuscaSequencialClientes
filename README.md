@@ -25,6 +25,13 @@ O repositório está organizado da seguinte forma:
 ``` 
 📁 - BuscaSequencialClientes
 │
+└───assets
+        │
+        ├── melhor_caso_tempo.png
+        ├── melhor_caso_tempo_nome.png
+        ├── pior_caso_tempo.png
+        └── pior_caso_tempo_nome.png
+│
 └───linguagem_c
         │
         ├──cliente.c
