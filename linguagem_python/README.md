@@ -2,9 +2,9 @@
 
 Esta pasta abriga o projeto de busca de clientes utilizando o algoritmo de busca sequencial em Python, dessa forma, é necessário ter uma versão do Python 3.x instalado no seu computador. Neste arquivo você verá:
 
-- Organização do repositório;
-- Busca Sequencial na linguagem Python;
-- Execução do projeto.
+- [Organização do repositório;] (#1-organização-do-repositório)
+- [Busca Sequencial na linguagem Python;] (#2-busca-sequencial-na-linguagem-python)
+- [Execução do projeto;] (#3-execução-do-projeto)
 
 ## 1. Organização do repositório:
 

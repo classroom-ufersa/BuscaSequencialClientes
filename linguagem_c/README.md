@@ -2,12 +2,14 @@
 
 Esta pasta abriga o projeto de busca de clientes utilizando o algoritmo de busca sequencial em C. Neste arquivo você verá:
 
-- Pré-Requisitos;
-- Organização do repositório;
-- Busca Sequencial na linguagem C;
-- Execução do projeto;
-- Análise de complexidade;
-- Referências;
+- [Pré-Requisitos;](#1-pré-requisitos)
+- [Organização do repositório;](#2-organização-do-repositório)
+- [Busca Sequencial na linguagem C;](#3-busca-sequencial-na-linguagem-c)
+- [Execução do projeto;](#4-execução-do-projeto)
+- [Análise de complexidade Temporal;](#5-análise-de-complexidade-temporal)
+- [Análise de complexidade Espacial;](#6-análise-de-complexidade-espacial)
+- [Referências utilizadas.](#referências-utilizadas)
+
 
 ## 1. Pré-Requisitos:
 
@@ -148,7 +150,7 @@ Para executar o código, digite o comando:
 ./main
 ```
 
-## 5. Análise de complexidade 
+## 5. Análise de complexidade Temporal:
 ### 5.1 Melhor caso 
 O melhor caso ocorre quando o elemento buscado é o primeiro elemento do vetor. Neste caso, a complexidade é constante, ou seja, O(1).
 
@@ -202,6 +204,32 @@ T(N) = (C1 + C2 + C3 + C4 + C5 + C6 + C7 + C16 + C17 + C18 + C19 + C20 + C21 + C
 T(N) = a + b * N
 
 *Colocando na notação Big(O):* b * N = N = bigO(n)
+
+# 6. Análise de complexidade Espacial:
+
+A complexidade espacial do algoritmo de busca sequencial é O(1), uma vez que não irá mudar independente da entrada do algoritmo.
+
+- Procura_codigo:
+    ![Alt text](../assets/complexidade_espacial_codigo.png)
+
+    S(P) = c + Sp
+    Como todas as variáveis são constantes, Sp = 0; 
+    S(P) = (100 + 300 + 4 + 300) 
+    S(P) = 704
+    Assim, a função procura_codigo ocupa 704 bytes.
+
+- Procura_nome:
+    ![Alt text](../assets/complexidade_espacial_nome.png)
+    S(P) = c + Sp
+
+    Como todas as variáveis são constantes, Sp = 0; 
+
+    S(P) = (100 + 300 + 4 + 300) 
+
+    S(P) = 704 bytes
+
+    Dessa forma, a função procura_nome ocupa 704 bytes de memória.
+
 
 ## Referências utilizadas: 
 - [OPERAÇÃO DE BUSCA SEQUENCIAL.](https://www.cin.ufpe.br/~garme/public/(ebook)Estruturas%20de%20Dados%20Usando%20C%20(Tenenbaum).pdf.)
