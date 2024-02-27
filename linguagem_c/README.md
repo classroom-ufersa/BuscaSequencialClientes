@@ -2,12 +2,14 @@
 
 Esta pasta abriga o projeto de busca de clientes utilizando o algoritmo de busca sequencial em C. Neste arquivo você verá:
 
-- Pré-Requisitos;
-- Organização do repositório;
-- Busca Sequencial na linguagem C;
-- Execução do projeto;
-- Análise de complexidade;
-- Referências;
+- [Pré-Requisitos;](#1-pré-requisitos)
+- [Organização do repositório;](#2-organização-do-repositório)
+- [Busca Sequencial na linguagem C;](#3-busca-sequencial-na-linguagem-c)
+- [Execução do projeto;](#4-execução-do-projeto)
+- [Análise de complexidade Temporal;](#5-análise-de-complexidade-temporal)
+- [Análise de complexidade Espacial;](#6-análise-de-complexidade-espacial)
+- [Referências utilizadas.](#referências-utilizadas)
+
 
 ## 1. Pré-Requisitos:
 
