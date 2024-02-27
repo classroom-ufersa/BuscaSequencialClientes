@@ -181,6 +181,8 @@ void procura_nome() {
     } while (!contem_apenas_letras(nome_digitado));
     int encontrou = 0;
 
+    formata_string(nome_digitado);
+    
     while (fgets(linha, sizeof(linha), arquivo)) {
         char nome_arquivo[100], cidade[100], codigo[100];
         if (sscanf(linha, "%99[^\t]\t%99[^\t]\t%99[^\t ]", nome_arquivo, cidade, codigo) >= 2) {
