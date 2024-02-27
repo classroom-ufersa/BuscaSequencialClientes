@@ -30,6 +30,23 @@ int numero_inteiroc(char *str) {
     return 1;
 }
 
+void formata_string(char *str) {
+    int i;
+    for (i = 0; str[i] != '\0'; i++) {
+        if (i==0){
+            str[0] = toupper(str[0]);
+        }
+        else{
+            if (str[i - 1] == ' ') {
+                str[i] = toupper(str[i]);
+            } 
+            else {
+                str[i] = tolower(str[i]);
+            }
+        }
+    }
+}
+
 int verifica_codigo(char *codigo_digitado) {
     char linha[300];
     char codigo_arquivo[100];
@@ -64,6 +81,7 @@ void adiciona_cliente() {
     }
 
     char nome_digitado[100];
+    char cidade_digitada[100];
     char codigo_digitado[100]; 
 
 
@@ -74,11 +92,17 @@ void adiciona_cliente() {
     getchar();
     }while (!contem_apenas_letras(nome_digitado));
     
+    formata_string(nome_digitado);
     strcpy(cliente.nome, nome_digitado);
 
-    printf("\nDigite a cidade do cliente: ");
-    scanf(" %99[^\n]", cliente.cidade);
-    getchar();
+    do{
+        printf("\nDigite o nome do cliente (apenas letras): ");
+        scanf("%99[^\n]", cidade_digitada);
+        getchar();
+    }while (!contem_apenas_letras(cidade_digitada));
+        
+    formata_string(cidade_digitada);
+    strcpy(cliente.cidade, cidade_digitada);
 
     do{
     printf("\nDigite o codigo do cliente (apenas numeros inteiros): ");
