@@ -1,6 +1,6 @@
 # Busca de Clientes utilizando Busca Sequencial 
 
-Esse projeto foi desenvovido como parte de uma avaliação para a disciplina de Estrutura de Dados I, utilizando a busca sequencial. Neste repositório, você encontrará a implementação do algoritmo de busca sequencial em Python e em C.
+Esse projeto foi desenvolvido como parte de uma avaliação para a disciplina de Estrutura de Dados I, utilizando a busca sequencial. Neste repositório, você encontrará a implementação do algoritmo de busca sequencial em Python e em C.
 
 - [Projeto em Python](https://github.com/classroom-ufersa/BuscaSequencialClientes/tree/main/linguagem_python)
 - [Projeto em C](https://github.com/classroom-ufersa/BuscaSequencialClientes/tree/main/linguagem_c)
@@ -42,6 +42,7 @@ O repositório está organizado da seguinte forma:
 └─── .gitignore
 └─── README.md
 ```
+###### Organização do repositório
 
 ## Referências utlizadas:
 - [OPERAÇÃO DE BUSCA SEQUENCIAL](https://www.cin.ufpe.br/~garme/public/(ebook)Estruturas%20de%20Dados%20Usando%20C%20(Tenenbaum).pdf.)
