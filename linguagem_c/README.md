@@ -5,7 +5,9 @@ Esta pasta abriga o projeto de busca de clientes utilizando o algoritmo de busca
 - Pré-Requisitos;
 - Organização do repositório;
 - Busca Sequencial na linguagem C;
-- Execução do projeto.
+- Execução do projeto;
+- Análise de complexidade;
+- Referências;
 
 ## 1. Pré-Requisitos:
 
@@ -145,5 +147,23 @@ Para executar o código, digite o comando:
 ```
 ./main
 ```
+
+## 5. Análise de complexidade 
+### 4.2 Melhor caso
+![alt text](image.png)   
+*cálculos:*    
+T(N) = C1 + C2 + C3 + C4 + C5 + C6 + C7 * 1+ C8 * 1 + C9 * 1 + C10 * 1 + C11  * 1 + C12 + C13 * 1 + C14 * 1 + C15 * 1 + C16 +  C17 + C18  + C19    
+T(N) = (C1 + C2 + C3 + C4 + C5 + C6 + C16 + C17 + C18 + C19) + (C7 + C8 + C9+ C10 + C11 + C13 + C14 + C15) * 1   
+T(N) = a + b * 1   
+*Colocando na notação Big(O):* b * 1 = 1 = bigO(1)
+
+### 4.3 Pior caso
+![alt text](image-1.png)   
+*cálculos:*   
+T(N) = C1 + C2 + C3 + C4 + C5 + C6 + C7 * N+ C8 * N + C9 * N + C10 * N + C11  * N + C12 + C13 * N + C14 * N + C15 * N + C16 + C17 + C18 + C19   
+T(N) = (C1 + C2 + C3 + C4 + C5 + C6 + C7 + C16 + C17 + C18 + C19) + (C7 + C8 + C9+ C10 + C11 + C13 + C14 + C15) * N   
+T(N) = a + b * N   
+*Colocando na notação Big(O):* b * N = N = bigO(n)
+
 ## Referências utilizadas: 
 - [OPERAÇÃO DE BUSCA SEQUENCIAL.](https://www.cin.ufpe.br/~garme/public/(ebook)Estruturas%20de%20Dados%20Usando%20C%20(Tenenbaum).pdf.)
