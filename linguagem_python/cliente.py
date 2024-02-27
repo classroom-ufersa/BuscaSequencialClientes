@@ -15,6 +15,60 @@ def cabeçalho(divisoria, titulo):
     print(f"{titulo:^50}")
     print(divisoria * 50)
 
+def valida_codigo(verificar_existencia):
+    """Valida o código do cliente, vendo se é um número, além de verificar se já existe um cliente com esse código
+    de acordo com o parâmetro passado.
+
+    Args:
+        verificar_existencia (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
+    while True:
+        try:
+            codigo = int(input("Digite o código de cliente: "))
+            break
+        except ValueError:
+            print('Insira um código válido')
+
+    if verificar_existencia:
+        while True:
+            if verifica_codigo(codigo):
+                print("Código já existente!")
+        
+                while True:
+                    try:
+                        codigo = int(input("Digite o código de cliente: "))
+                        break
+                    except ValueError:
+                        print('Insira um código válido')
+            else:
+                break
+            
+    return codigo
+
+def valida_string(mensagem):
+    """Valida uma string, verificando se é vazia ou se contém apenas espaços em branco. 
+    Também verifica se contém números ou caracteres especiais.
+    
+    Args:
+        mensagem (str): Mensagem que será exibida ao usuário
+    Returns:
+        string: string válida e formatada com a primeira letra de cada palavra em maiúsculo.
+    """
+    while True:
+        string = input(mensagem)
+        if string.strip() == "":
+            print("Digite algo válido!")
+        elif not ((string).replace(" ", "")).isalpha():
+            print("Não é permitido números ou caracteres especiais!")
+        else:
+            break
+    
+    return string.title()
+
 def adiciona_cliente():
     """Adiciona um cliente ao arquivo clientes.txt
     
@@ -30,29 +84,9 @@ def adiciona_cliente():
     
     cabeçalho("-", "Adicionar cliente")
     
-    nome = (input("Digite o nome do cliente: ")).title()
-    cidade = input("Digite a cidade do cliente: ")
-
-    while True:
-        try:
-            codigo = int(input("Digite o código de cliente: "))
-            break
-        except ValueError:
-            print('Insira um código válido')
-
-    while True:
-        if verifica_codigo(codigo):
-            print("Código já existente!")
-    
-            while True:
-                try:
-                    codigo = int(input("Digite o código de cliente: "))
-                    break
-                except ValueError:
-                    print('Insira um código válido')
-        else:
-            break
-
+    nome = valida_string("Digite o nome do cliente: ")
+    cidade = valida_string("Digite a cidade do cliente: ")
+    codigo = valida_codigo(verificar_existencia=True)
 
     cliente['nome'] = nome
     cliente['cidade'] = cidade
@@ -91,13 +125,7 @@ def procura_codigo():
     """
 
     arquivo = open('clientes.txt', 'r')
-    
-    while True:
-        try:
-            codigo = int(input("Digite o código de cliente: "))
-            break
-        except ValueError:
-            print('Insira um código válido')
+    codigo = valida_codigo(verificar_existencia=False)
 
     busca = False
     
@@ -132,7 +160,7 @@ def procura_nome():
         None
     """
     arquivo = open('clientes.txt', 'r')
-    nome = (input("Digite o nome do cliente: ")).title()
+    nome = valida_string("Digite o nome do cliente: ")
     busca = False
     
     cabeçalho("-", "Resultado da busca por nome")
