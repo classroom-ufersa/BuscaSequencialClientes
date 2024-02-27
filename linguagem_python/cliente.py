@@ -113,7 +113,7 @@ def lista_clientes():
         resultado = linha.split("\t")
         print(f"{resultado[0]:<20}{resultado[1]:<20}{resultado[2]:<20}")
     print("-" * 50)
-    a = input("Pressione enter para continuar...")
+    a = input("Pressione ENTER para continuar...")
     arquivo.close()
 
 def procura_codigo():
@@ -148,7 +148,7 @@ def procura_codigo():
     if busca == False:
         print("Cliente não encontrado!")
         
-    a = input("Pressione enter para continuar...")
+    a = input("Pressione ENTER para continuar...")
 
     arquivo.close()
     
@@ -179,7 +179,7 @@ def procura_nome():
     if busca == False:
         print("Cliente não encontrado!")
         
-    a = input("Pressione enter para continuar...")
+    a = input("Pressione ENTER para continuar...")
     arquivo.close()
 
 def verifica_codigo(codigo):
